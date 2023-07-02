@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Created By:</strong>
+  <%= @item.user.full_name %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @item.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @item.price %>
+</p>
+
+<p>
+  <strong>Tax rate:</strong>
+  <%= @item.tax_rate %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_item_path(@item), class: "btn btn-success" %>
+<%= link_to 'Back', admin_items_path, class: "btn btn-success" %>

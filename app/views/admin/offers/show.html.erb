@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Item:</strong>
+  <%= @offer.item_id %>
+</p>
+
+<p>
+  <strong>Offer On:</strong>
+  <%= @offer.discounted_item_id %>
+</p>
+
+<p>
+  <strong>Is free:</strong>
+  <%= @offer.is_free %>
+</p>
+
+<p>
+  <strong>Discount percent:</strong>
+  <%= @offer.discount_percent %>
+</p>
+
+<%= link_to 'Edit', edit_admin_offer_path(@offer), class: 'btn btn-success' %>
+<%= link_to 'Back', admin_offers_path, class: 'btn btn-success' %>

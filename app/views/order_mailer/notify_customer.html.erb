@@ -1,0 +1,13 @@
+<h1>Greetings <%= @customer.full_name %></h1>
+<h2>Your order is ready. Please take it from the counter </h2>
+<h3>Order details: </h3>
+<p>
+  Order ID: <%= @order.id %>.<br>
+</p>
+<p>
+  Order Items: <%= @order.items_list %>.<br>
+</p>
+<p>
+  Final Total: <%= @order.final_total %>.<br>
+</p>
+<p>Thanks for allowing us to serve you!</p>

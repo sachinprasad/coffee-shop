@@ -1,0 +1,19 @@
+<h1>Editing Order</h1>
+
+<h2>Order details: </h2>
+<p>
+  <strong>Order ID:</strong>
+  <%= @order.id %>
+</p>
+<p>
+  <strong>Total price:</strong>
+  <%= @order.final_total %>
+</p>
+<p>
+  <strong>Order status:</strong>
+  <%= @order.order_status %>
+</p>
+
+<%= render 'form', order: @order %>
+<br><br>
+<%= link_to 'Back', admin_orders_path, class: 'btn btn-success' %>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CoffeeShop</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid" style="width:50%; float: left;">
+          <% if user_signed_in? %>
+            <% if current_user.admin? %>
+              <%= link_to "Items", admin_items_path, class: 'navbar-brand' %>
+              <%= link_to "Offers", admin_offers_path, class: 'navbar-brand' %>
+              <%= link_to "Orders", admin_orders_path, class: 'navbar-brand' %>
+            <% else %>
+              <%= link_to "Orders", orders_path, class: 'navbar-brand' %>
+            <% end %>
+          <% end %>
+        </div>
+
+        <div style="width:50%; float: right;">
+          <% if user_signed_in? %>
+            <span> Welcome <%= "#{current_user.email} (#{current_user.user_role})" %> </span>
+            <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: 'btn btn-danger' %>
+          <% else %>
+            <%= button_to "Sign in", new_user_session_path, class: 'btn btn-info' %>
+          <% end %>
+
+        </div>
+      </nav>
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+   </header>
+   <%= yield %>
+  </body>
+</html>

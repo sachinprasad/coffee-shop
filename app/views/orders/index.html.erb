@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Orders</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Item</th>
+      <th>Final total</th>
+      <th>Order status</th>
+      <th colspan="2">Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if @orders.present? %>
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%= order.id %></td>
+          <td><%= order.items_list %></td>
+          <td><%= order.final_total %></td>
+          <td><%= order.order_status %></td>
+          <td><%= link_to 'Edit', edit_order_path(order), class: 'btn btn-success' %></td>
+          <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+        </tr>
+      <% end %>
+    <% else %>
+      <tr>
+        <td colspan="7"> No orders available. Click on "New Order" to see list of available items.</td>
+      </tr>
+
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Order', new_order_path, class: 'btn btn-success' %>

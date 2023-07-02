@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  references: 
+  references: 
+  amount_paid: 9.99
+  discount_applied: 9.99
+  tax_rate_applied: 9.99
+
+two:
+  references: 
+  references: 
+  amount_paid: 9.99
+  discount_applied: 9.99
+  tax_rate_applied: 9.99

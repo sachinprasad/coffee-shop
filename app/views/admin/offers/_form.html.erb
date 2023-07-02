@@ -1,0 +1,37 @@
+
+<%= simple_form_for([:admin, @offer]) do |f| %>
+  <% if @offer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@offer.errors.count, "error") %> prohibited this offer from being saved:</h2>
+
+      <ul>
+      <% @offer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-inputs">
+    <%= f.label "Select Item" %>
+    <%= f.collection_select :item_id, @items, :id,:name, include_blank: true %>
+  </div>
+
+  <div class="form-inputs">
+    <%= f.label "Select Offered with" %>
+    <%= f.collection_select :discounted_item_id, @items, :id,:name, include_blank: true %>
+  </div>
+
+  <div class="form-inputs">
+    <%= f.label :is_free %>
+    <%= f.check_box :is_free %>
+  </div>
+
+  <div class="form-inputs">
+    <%= f.label :discount_percent %>
+    <%= f.text_field :discount_percent %>
+  </div>
+
+  <div class="form-actions pad-submit">
+    <%= f.button :submit, class: 'btn btn-success' %>
+  </div>
+<% end %>
